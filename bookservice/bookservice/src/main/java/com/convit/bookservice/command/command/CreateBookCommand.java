@@ -1,13 +1,15 @@
 package com.convit.bookservice.command.command;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class CreateBookCommand {
     @TargetAggregateIdentifier
     private String id;

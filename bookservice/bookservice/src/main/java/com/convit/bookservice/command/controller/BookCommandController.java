@@ -18,13 +18,12 @@ public class BookCommandController {
     private CommandGateway commandGateway;
 
     @PostMapping
-    public String addBook(@RequestBody BookRequestModel model) {
-        CreateBookCommand command = CreateBookCommand.builder()
-                .id(UUID.randomUUID().toString())
-                .name(model.getName())
-                .author(model.getAuthor())
-                .isReady(model.getIsReady())
-                .build();
+    public String addBook(@RequestBody BookRequestModel model){
+        CreateBookCommand command = new CreateBookCommand(
+                UUID.randomUUID().toString(),
+                model.getName(),
+                model.getAuthor(),
+                true);
         return commandGateway.sendAndWait(command);
     }
 }

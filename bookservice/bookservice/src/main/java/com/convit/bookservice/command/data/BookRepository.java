@@ -1,2 +1,6 @@
-package com.convit.bookservice.command.data;public interface BookRepository {
+package com.convit.bookservice.command.data;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BookRepository extends JpaRepository<Book, String> {
 }
