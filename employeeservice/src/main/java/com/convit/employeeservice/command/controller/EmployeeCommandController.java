@@ -1,14 +1,12 @@
 package com.convit.employeeservice.command.controller;
 
 import com.convit.employeeservice.command.command.CreateEmployeeCommand;
+import com.convit.employeeservice.command.command.UpdateEmployeeCommand;
 import com.convit.employeeservice.command.model.CreateEmployeeModel;
 import jakarta.validation.Valid;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -27,6 +25,18 @@ public class EmployeeCommandController {
                 .lastName(model.getLastName())
                 .Kin(model.getKin())
                 .isDisciplined(Boolean.FALSE)
+                .build();
+        return commandGateway.sendAndWait(command);
+    }
+
+    @PutMapping("/{employeeId}")
+    public String updateEmployee(@Valid @RequestBody UpdateEmployeeCommand model, @PathVariable String employeeId) {
+        UpdateEmployeeCommand command = UpdateEmployeeCommand.builder()
+                .id(employeeId)
+                .firstName(model.getFirstName())
+                .lastName(model.getLastName())
+                .Kin(model.getKin())
+                .isDisciplined(model.getIsDisciplined())
                 .build();
         return commandGateway.sendAndWait(command);
     }

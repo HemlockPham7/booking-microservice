@@ -1,7 +1,9 @@
 package com.convit.employeeservice.command.aggregate;
 
 import com.convit.employeeservice.command.command.CreateEmployeeCommand;
+import com.convit.employeeservice.command.command.UpdateEmployeeCommand;
 import com.convit.employeeservice.command.event.EmployeeCreatedEvent;
+import com.convit.employeeservice.command.event.EmployeeUpdatedEvent;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
@@ -28,8 +30,25 @@ public class EmployeeAggregate {
         AggregateLifecycle.apply(event);
     }
 
+    @CommandHandler
+    public void handle(UpdateEmployeeCommand command){
+        EmployeeUpdatedEvent event = new EmployeeUpdatedEvent();
+        BeanUtils.copyProperties(command, event);
+
+        AggregateLifecycle.apply(event);
+    }
+
     @EventSourcingHandler
     public void on(EmployeeCreatedEvent event){
+        this.id = event.getId();
+        this.firstName = event.getFirstName();
+        this.lastName = event.getLastName();
+        this.Kin = event.getKin();
+        this.isDisciplined = event.getIsDisciplined();
+    }
+
+    @EventSourcingHandler
+    public void on(EmployeeUpdatedEvent event){
         this.id = event.getId();
         this.firstName = event.getFirstName();
         this.lastName = event.getLastName();
