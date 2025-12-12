@@ -1,6 +1,7 @@
 package com.convit.employeeservice.command.controller;
 
 import com.convit.employeeservice.command.command.CreateEmployeeCommand;
+import com.convit.employeeservice.command.command.DeleteEmployeeCommand;
 import com.convit.employeeservice.command.command.UpdateEmployeeCommand;
 import com.convit.employeeservice.command.model.CreateEmployeeModel;
 import jakarta.validation.Valid;
@@ -37,6 +38,14 @@ public class EmployeeCommandController {
                 .lastName(model.getLastName())
                 .Kin(model.getKin())
                 .isDisciplined(model.getIsDisciplined())
+                .build();
+        return commandGateway.sendAndWait(command);
+    }
+
+    @DeleteMapping("/{employeeId}")
+    public String deleteEmployee(@PathVariable String employeeId){
+        DeleteEmployeeCommand command = DeleteEmployeeCommand.builder()
+                .id(employeeId)
                 .build();
         return commandGateway.sendAndWait(command);
     }
