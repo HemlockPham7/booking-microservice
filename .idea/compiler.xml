@@ -9,7 +9,17 @@
         <outputRelativeToContentRoot value="true" />
         <module name="discoverserver" />
       </profile>
-      <profile name="Annotation profile for employeeservice" enabled="true">
+      <profile name="Annotation profile for commonservice" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+        </processorPath>
+        <module name="commonservice" />
+      </profile>
+      <profile name="Annotation profile for bookservice" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -17,7 +27,6 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
         </processorPath>
         <module name="employeeservice" />
-        <module name="commonservice" />
         <module name="bookservice" />
       </profile>
     </annotationProcessing>
