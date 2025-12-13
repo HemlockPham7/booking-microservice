@@ -17,8 +17,8 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
         </processorPath>
         <module name="employeeservice" />
-        <module name="bookservice" />
         <module name="commonservice" />
+        <module name="bookservice" />
       </profile>
     </annotationProcessing>
   </component>
