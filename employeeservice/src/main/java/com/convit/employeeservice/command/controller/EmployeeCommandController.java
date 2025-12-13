@@ -4,6 +4,7 @@ import com.convit.employeeservice.command.command.CreateEmployeeCommand;
 import com.convit.employeeservice.command.command.DeleteEmployeeCommand;
 import com.convit.employeeservice.command.command.UpdateEmployeeCommand;
 import com.convit.employeeservice.command.model.CreateEmployeeModel;
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.validation.Valid;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,7 @@ public class EmployeeCommandController {
         return commandGateway.sendAndWait(command);
     }
 
+    @Hidden
     @DeleteMapping("/{employeeId}")
     public String deleteEmployee(@PathVariable String employeeId){
         DeleteEmployeeCommand command = DeleteEmployeeCommand.builder()
