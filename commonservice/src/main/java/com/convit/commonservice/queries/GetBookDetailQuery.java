@@ -1,14 +1,14 @@
-package com.convit.employeeservice.query.queries;
+package com.convit.commonservice.queries;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Builder
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetDetailEmployeeQuery {
+public class GetBookDetailQuery {
     private String id;
 }

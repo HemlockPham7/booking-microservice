@@ -1,8 +1,8 @@
 package com.convit.employeeservice.query.controller;
 
-import com.convit.employeeservice.query.model.EmployeeResponseModel;
+import com.convit.commonservice.model.EmployeeResponseCommonModel;
+import com.convit.commonservice.queries.GetDetailEmployeeQuery;
 import com.convit.employeeservice.query.queries.GetAllEmployeeQuery;
-import com.convit.employeeservice.query.queries.GetDetailEmployeeQuery;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -37,19 +37,19 @@ public class EmployeeQueryController {
             }
     )
     @GetMapping
-    public List<EmployeeResponseModel> getAllEmployee(@RequestParam(required = false, defaultValue = "false") Boolean isDisciplined) {
+    public List<EmployeeResponseCommonModel> getAllEmployee(@RequestParam(required = false, defaultValue = "false") Boolean isDisciplined) {
         log.info("Calling to getAllEmployee");
         GetAllEmployeeQuery getAllEmployeeQuery = GetAllEmployeeQuery.builder()
                 .isDisciplined(isDisciplined)
                 .build();
-        return queryGateway.query(getAllEmployeeQuery, ResponseTypes.multipleInstancesOf(EmployeeResponseModel.class)).join();
+        return queryGateway.query(getAllEmployeeQuery, ResponseTypes.multipleInstancesOf(EmployeeResponseCommonModel.class)).join();
     }
 
     @GetMapping("/{employeeId}")
-    public EmployeeResponseModel getDetailEmployee(@PathVariable String employeeId){
+    public EmployeeResponseCommonModel getDetailEmployee(@PathVariable String employeeId){
         GetDetailEmployeeQuery getDetailEmployeeQuery = GetDetailEmployeeQuery.builder()
                 .id(employeeId)
                 .build();
-        return queryGateway.query(getDetailEmployeeQuery,ResponseTypes.instanceOf(EmployeeResponseModel.class)).join();
+        return queryGateway.query(getDetailEmployeeQuery,ResponseTypes.instanceOf(EmployeeResponseCommonModel.class)).join();
     }
 }

@@ -1,12 +1,13 @@
-package com.convit.bookservice.query.model;
+package com.convit.commonservice.model;
 
 import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookResponseModel {
+public class BookResponseCommonModel {
     private String id;
+
     private String name;
     private String author;
     private Boolean isReady;

@@ -1,4 +1,4 @@
-package com.convit.employeeservice.query.model;
+package com.convit.commonservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EmployeeResponseModel {
+public class EmployeeResponseCommonModel {
     private String id;
     private String firstName;
-    private String lastName;
+    private String LastName;
     private String Kin;
     private Boolean isDisciplined;
 }
