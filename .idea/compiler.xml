@@ -10,7 +10,7 @@
         <module name="apigateway" />
         <module name="discoverserver" />
       </profile>
-      <profile name="Annotation profile for employeeservice" enabled="true">
+      <profile name="Annotation profile for notificationservice" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -19,6 +19,7 @@
         </processorPath>
         <module name="employeeservice" />
         <module name="commonservice" />
+        <module name="notificationservice" />
         <module name="bookservice" />
       </profile>
     </annotationProcessing>
@@ -30,6 +31,7 @@
       <module name="commonservice" options="-parameters" />
       <module name="discoverserver" options="-parameters" />
       <module name="employeeservice" options="-parameters" />
+      <module name="notificationservice" options="-parameters" />
     </option>
   </component>
 </project>
