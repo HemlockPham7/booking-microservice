@@ -1,8 +1,8 @@
 package com.convit.bookservice.query.controller;
 
-import com.convit.bookservice.query.model.BookResponseModel;
 import com.convit.bookservice.query.queries.GetAllBookQuery;
-import com.convit.bookservice.query.queries.GetBookDetailQuery;
+import com.convit.commonservice.model.BookResponseCommonModel;
+import com.convit.commonservice.queries.GetBookDetailQuery;
 import com.convit.commonservice.services.KafkaService;
 import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
@@ -22,9 +22,9 @@ public class BookQueryController {
     private KafkaService kafkaService;
 
     @GetMapping
-    public List<BookResponseModel> getAllBooks() {
+    public List<BookResponseCommonModel> getAllBooks() {
         GetAllBookQuery getAllBookQuery = new GetAllBookQuery();
-        return queryGateway.query(getAllBookQuery, ResponseTypes.multipleInstancesOf(BookResponseModel.class)).join(); // dung join se block luong tai day va cho ket qua tra ve
+        return queryGateway.query(getAllBookQuery, ResponseTypes.multipleInstancesOf(BookResponseCommonModel.class)).join(); // dung join se block luong tai day va cho ket qua tra ve
 
         // List<BookResponseModel> bookFuture = queryGateway.query(getAllBookQuery, ResponseTypes.multipleInstancesOf(BookResponseModel.class)); // dang la bat dong bo
         // CompletableFuture<List<BookResponseModel>> bookFuture = queryGateway.query(getAllBookQuery, ResponseTypes.multipleInstancesOf(BookResponseModel.class));
@@ -35,11 +35,11 @@ public class BookQueryController {
     }
 
     @GetMapping("{bookId}")
-    public BookResponseModel getBookDetails(@PathVariable String bookId) {
+    public BookResponseCommonModel getBookDetails(@PathVariable String bookId) {
         GetBookDetailQuery getBookDetailQuery = GetBookDetailQuery.builder()
                 .id(bookId)
                 .build();
-        return queryGateway.query(getBookDetailQuery, ResponseTypes.instanceOf(BookResponseModel.class)).join();
+        return queryGateway.query(getBookDetailQuery, ResponseTypes.instanceOf(BookResponseCommonModel.class)).join();
     }
 
     @PostMapping("/sendMessage")

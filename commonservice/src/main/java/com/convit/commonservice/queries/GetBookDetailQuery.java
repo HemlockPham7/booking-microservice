@@ -1,4 +1,4 @@
-package com.convit.bookservice.query.queries;
+package com.convit.commonservice.queries;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
