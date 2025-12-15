@@ -7,6 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 public class BookResponseCommonModel {
     private String id;
+
     private String name;
     private String author;
     private Boolean isReady;

@@ -1,4 +1,4 @@
-package com.convit.borrowingservice.command.model;
+package com.convit.commonservice.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BorrowingCreateModel {
-
+public class BookRollBackStatusEvent {
     private String bookId;
+    private Boolean isReady;
     private String employeeId;
-
+    private String borrowingId;
 }

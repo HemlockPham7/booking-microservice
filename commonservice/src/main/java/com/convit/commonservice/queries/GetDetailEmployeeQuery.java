@@ -1,4 +1,4 @@
-package com.convit.employeeservice.query.queries;
+package com.convit.commonservice.queries;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
