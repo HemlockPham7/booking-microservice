@@ -10,13 +10,14 @@
         <module name="apigateway" />
         <module name="discoverserver" />
       </profile>
-      <profile name="Annotation profile for notificationservice" enabled="true">
+      <profile name="Annotation profile for borrowingservice" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
         </processorPath>
+        <module name="borrowingservice" />
         <module name="employeeservice" />
         <module name="commonservice" />
         <module name="notificationservice" />
@@ -28,6 +29,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="apigateway" options="-parameters" />
       <module name="bookservice" options="-parameters" />
+      <module name="borrowingservice" options="-parameters" />
       <module name="commonservice" options="-parameters" />
       <module name="discoverserver" options="-parameters" />
       <module name="employeeservice" options="-parameters" />
